@@ -23,6 +23,16 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        main:        path.resolve(import.meta.dirname, "index.html"),
+        menu:        path.resolve(import.meta.dirname, "menu.html"),
+        dish:        path.resolve(import.meta.dirname, "dish.html"),
+        reservation: path.resolve(import.meta.dirname, "reservation.html"),
+        contact:     path.resolve(import.meta.dirname, "contact.html"),
+        checkout:    path.resolve(import.meta.dirname, "checkout.html"),
+      },
+    },
   },
   server: {
     port,

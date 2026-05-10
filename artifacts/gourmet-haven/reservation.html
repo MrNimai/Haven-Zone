@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reserve a Table – Gourmet Haven</title>
+  <meta name="description" content="Book a table at Gourmet Haven for any occasion. Instant confirmation, private dining rooms available." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="src/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-plate">🍽</span>
+        <span class="logo-text">Gourmet<strong>Haven</strong></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html"       class="nav-link">Home</a>
+        <a href="menu.html"        class="nav-link">Menu</a>
+        <a href="index.html#about" class="nav-link">About</a>
+        <a href="index.html#gallery" class="nav-link">Gallery</a>
+        <a href="reservation.html" class="nav-link">Reservation</a>
+        <a href="contact.html"     class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn-order-nav" onclick="window.location='menu.html'">Order Now</button>
+        <button class="cart-btn" id="cartBtn" onclick="toggleCart()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="cart-badge" id="cartCount">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero page-hero--dark">
+    <div class="container">
+      <div class="page-hero-inner" data-anim="fade-up">
+        <span class="sec-tag sec-tag--light">Reservations</span>
+        <h1>Reserve Your <em>Table</em> Today</h1>
+        <p>Book a table for any occasion — a romantic dinner, family celebration, or corporate event.<br/>Our team will craft an unforgettable experience tailored just for you.</p>
+        <nav class="page-breadcrumb page-breadcrumb--light">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span>Reservation</span>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESERVATION CONTENT -->
+  <section class="res-standalone-section">
+    <div class="container">
+      <div class="res-standalone-grid">
+        <!-- Info column -->
+        <div class="res-info-col" data-anim="fade-up">
+          <h2>Make a <em>Reservation</em></h2>
+          <p class="res-info-lead">We'd love to host your next special occasion. Fill in the form and we'll confirm your booking within 30 minutes.</p>
+
+          <ul class="res-features res-features--dark">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Instant confirmation via email
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Private dining rooms available
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Special event arrangements
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Free cancellation up to 24 hours before
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Complimentary birthday cake arrangements
+            </li>
+          </ul>
+
+          <div class="res-info-cards">
+            <div class="res-info-card">
+              <span class="ric-icon">📞</span>
+              <div>
+                <h5>Call us directly</h5>
+                <p>+880 1700-000000</p>
+              </div>
+            </div>
+            <div class="res-info-card">
+              <span class="ric-icon">✉️</span>
+              <div>
+                <h5>Email reservations</h5>
+                <p>reservations@gourmet-haven.com</p>
+              </div>
+            </div>
+            <div class="res-info-card">
+              <span class="ric-icon">🕐</span>
+              <div>
+                <h5>Opening Hours</h5>
+                <p>Mon–Thu: 11AM–10PM<br/>Fri–Sat: 11AM–11PM<br/>Sun: 12PM–9PM</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form column -->
+        <div class="res-form-col" data-anim="fade-up">
+          <div class="res-form-card">
+            <h3>Book Your Table</h3>
+            <!-- FORMSPREE -->
+            <form class="res-form" action="https://formspree.io/f/xykpavkz" method="POST" id="reservationForm" onsubmit="handleFormSubmit(event, this)">
+              <input type="hidden" name="_subject" value="New Table Reservation – Gourmet Haven" />
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="res-name">Full Name *</label>
+                  <input id="res-name" type="text" name="name" placeholder="John Doe" required />
+                </div>
+                <div class="form-field">
+                  <label for="res-email">Email *</label>
+                  <input id="res-email" type="email" name="email" placeholder="you@example.com" required />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="res-phone">Phone *</label>
+                  <input id="res-phone" type="tel" name="phone" placeholder="+880 1XXX-XXXXXX" required />
+                </div>
+                <div class="form-field">
+                  <label for="res-guests">Guests *</label>
+                  <select id="res-guests" name="guests" required>
+                    <option value="">Select guests</option>
+                    <option>1 Guest</option><option>2 Guests</option><option>3 Guests</option>
+                    <option>4 Guests</option><option>5–8 Guests</option><option>9+ Guests</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="res-date">Date *</label>
+                  <input id="res-date" type="date" name="date" required />
+                </div>
+                <div class="form-field">
+                  <label for="res-time">Time *</label>
+                  <select id="res-time" name="time" required>
+                    <option value="">Select time</option>
+                    <option>12:00 PM</option><option>1:00 PM</option><option>2:00 PM</option>
+                    <option>7:00 PM</option><option>8:00 PM</option><option>9:00 PM</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="res-occasion">Occasion</label>
+                <select id="res-occasion" name="occasion">
+                  <option value="">Select occasion (optional)</option>
+                  <option>Birthday Celebration</option>
+                  <option>Anniversary</option>
+                  <option>Business Dinner</option>
+                  <option>Family Gathering</option>
+                  <option>Date Night</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="res-notes">Special Requests</label>
+                <textarea id="res-notes" name="message" placeholder="Dietary requirements, celebrations, seating preferences, allergies…" rows="3"></textarea>
+              </div>
+              <button type="submit" class="btn-primary btn-full">
+                <span class="btn-label">Confirm Reservation</span>
+                <span class="btn-loading" style="display:none">Sending…</span>
+              </button>
+              <p class="form-privacy">By submitting, you agree to our privacy policy. We'll never share your data.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <div class="footer-logo"><span>🍽</span><span>Gourmet<strong>Haven</strong></span></div>
+        <p>Bringing culinary excellence to your table since 2009.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="f-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Our Menu</a></li>
+          <li><a href="reservation.html">Reservation</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <ul class="f-links f-contact">
+          <li><span>📍</span> 123 Culinary Street, Gulshan-2, Dhaka</li>
+          <li><span>📞</span> +880 1700-000000</li>
+          <li><span>✉️</span> hello@gourmet-haven.com</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Opening Hours</h4>
+        <ul class="f-hours">
+          <li><span>Mon – Thu</span><span>11 AM – 10 PM</span></li>
+          <li><span>Fri – Sat</span><span>11 AM – 11 PM</span></li>
+          <li><span>Sunday</span><span>12 PM – 9 PM</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <p>&copy; 2025 Gourmet Haven. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="src/main.js"></script>
+</body>
+</html>

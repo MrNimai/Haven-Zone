@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dish Detail – Gourmet Haven</title>
+  <meta name="description" content="Full dish details — ingredients, nutrition, and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="src/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-plate">🍽</span>
+        <span class="logo-text">Gourmet<strong>Haven</strong></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html"       class="nav-link">Home</a>
+        <a href="menu.html"        class="nav-link">Menu</a>
+        <a href="index.html#about" class="nav-link">About</a>
+        <a href="index.html#gallery" class="nav-link">Gallery</a>
+        <a href="reservation.html" class="nav-link">Reservation</a>
+        <a href="contact.html"     class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn-order-nav" onclick="window.location='menu.html'">Order Now</button>
+        <button class="cart-btn" id="cartBtn" onclick="toggleCart()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="cart-badge" id="cartCount">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- DETAIL NAV BAR -->
+  <div class="detail-nav">
+    <div class="detail-nav-inner">
+      <a href="menu.html" class="back-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        Back to Menu
+      </a>
+      <div class="detail-breadcrumb" id="dishBreadcrumb">
+        <a href="index.html">Home</a> / <a href="menu.html">Menu</a> / Loading…
+      </div>
+    </div>
+  </div>
+
+  <!-- DETAIL BODY -->
+  <div class="detail-body">
+    <div class="detail-grid">
+      <!-- LEFT: Image -->
+      <div class="detail-img-col">
+        <div class="detail-img-wrap">
+          <img id="dishDetailImg" src="" alt="" />
+          <div class="detail-img-badges" id="dishDetailBadges"></div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Info -->
+      <div class="detail-info-col">
+        <div class="detail-cat-badge" id="dishDetailCat"></div>
+        <h1 class="detail-title" id="dishDetailName">Loading…</h1>
+        <div class="detail-rating">
+          <span class="detail-stars">★★★★★</span>
+          <span class="detail-rating-num">4.9</span>
+          <span class="detail-rating-count">(2,400+ reviews)</span>
+        </div>
+        <div class="detail-price-row">
+          <span class="detail-price" id="dishDetailPrice"></span>
+          <span class="detail-price-note">per serving</span>
+        </div>
+        <p class="detail-short-desc" id="dishDetailDesc"></p>
+
+        <div class="detail-meta-bar">
+          <div class="detail-meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <div><span id="dishDetailPrep"></span><small>Prep Time</small></div>
+          </div>
+          <div class="detail-meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/></svg>
+            <div><span id="dishDetailCal"></span><small>Calories</small></div>
+          </div>
+          <div class="detail-meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            <div><span>1–2</span><small>Servings</small></div>
+          </div>
+        </div>
+
+        <div class="detail-qty-add">
+          <div class="detail-qty">
+            <button class="qty-lg-btn" onclick="changeDetailQty(-1)">−</button>
+            <span class="qty-lg-num" id="detailQty">1</span>
+            <button class="qty-lg-btn" onclick="changeDetailQty(1)">+</button>
+          </div>
+          <button class="btn-add-detail" onclick="addDetailToCart()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add to Cart
+          </button>
+        </div>
+        <div class="detail-subtotal" id="detailSubtotal"></div>
+      </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="detail-tabs-section">
+      <div class="detail-tabs">
+        <button class="dtab active" onclick="switchDetailTab(this,'dtab-desc')">Description</button>
+        <button class="dtab" onclick="switchDetailTab(this,'dtab-ingr')">Ingredients</button>
+        <button class="dtab" onclick="switchDetailTab(this,'dtab-nutr')">Nutrition</button>
+      </div>
+      <div class="dtab-content" id="dtab-desc">
+        <p class="dtab-desc-text" id="dishFullDesc"></p>
+      </div>
+      <div class="dtab-content" id="dtab-ingr" style="display:none">
+        <div class="ingr-grid" id="dishIngredients"></div>
+      </div>
+      <div class="dtab-content" id="dtab-nutr" style="display:none">
+        <div class="nutr-grid" id="dishNutrition"></div>
+      </div>
+    </div>
+
+    <!-- RELATED ITEMS -->
+    <div class="detail-related">
+      <div class="container">
+        <h3>You Might Also <em>Like</em></h3>
+        <div class="dish-grid" id="relatedGrid"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <div class="footer-logo"><span>🍽</span><span>Gourmet<strong>Haven</strong></span></div>
+        <p>Bringing culinary excellence to your table since 2009.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="f-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Our Menu</a></li>
+          <li><a href="reservation.html">Reservation</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <ul class="f-links f-contact">
+          <li><span>📍</span> 123 Culinary Street, Gulshan-2, Dhaka</li>
+          <li><span>📞</span> +880 1700-000000</li>
+          <li><span>✉️</span> hello@gourmet-haven.com</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Opening Hours</h4>
+        <ul class="f-hours">
+          <li><span>Mon – Thu</span><span>11 AM – 10 PM</span></li>
+          <li><span>Fri – Sat</span><span>11 AM – 11 PM</span></li>
+          <li><span>Sunday</span><span>12 PM – 9 PM</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <p>&copy; 2025 Gourmet Haven. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="src/main.js"></script>
+</body>
+</html>

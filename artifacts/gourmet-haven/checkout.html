@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout – Gourmet Haven</title>
+  <meta name="description" content="Complete your order at Gourmet Haven. Fast delivery, secure checkout." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="src/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-plate">🍽</span>
+        <span class="logo-text">Gourmet<strong>Haven</strong></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html"       class="nav-link">Home</a>
+        <a href="menu.html"        class="nav-link">Menu</a>
+        <a href="index.html#about" class="nav-link">About</a>
+        <a href="index.html#gallery" class="nav-link">Gallery</a>
+        <a href="reservation.html" class="nav-link">Reservation</a>
+        <a href="contact.html"     class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn-order-nav" onclick="window.location='menu.html'">Order Now</button>
+        <button class="cart-btn" id="cartBtn" onclick="toggleCart()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="cart-badge" id="cartCount">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CHECKOUT NAV -->
+  <div class="checkout-nav">
+    <div class="checkout-nav-inner">
+      <a href="menu.html" class="back-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        Continue Shopping
+      </a>
+      <div class="checkout-steps">
+        <div class="checkout-step active"><span>1</span> Review Order</div>
+        <div class="checkout-step-sep"></div>
+        <div class="checkout-step active"><span>2</span> Delivery Info</div>
+        <div class="checkout-step-sep"></div>
+        <div class="checkout-step"><span>3</span> Confirm</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMPTY CART MESSAGE -->
+  <div id="emptyCartMsg" class="empty-checkout-page" style="display:none">
+    <div class="empty-checkout-inner">
+      <div class="empty-cart-icon">🛒</div>
+      <h2>Your Cart is Empty</h2>
+      <p>You haven't added any dishes yet. Browse our menu and pick your favourites!</p>
+      <a href="menu.html" class="btn-primary">Browse Menu</a>
+    </div>
+  </div>
+
+  <!-- CHECKOUT CONTENT -->
+  <div class="checkout-body" id="checkoutContent">
+    <div class="checkout-grid">
+      <!-- LEFT: Order Summary -->
+      <div class="checkout-summary">
+        <div class="checkout-card">
+          <h3>Order Summary</h3>
+          <div id="checkoutItems" class="checkout-items-list"></div>
+
+          <div class="checkout-promo">
+            <input type="text" id="promoInput" placeholder="Promo code (e.g. GOURMET20)" />
+            <button onclick="applyPromo()">Apply</button>
+          </div>
+          <div id="promoMsg" class="promo-msg"></div>
+
+          <div class="checkout-totals">
+            <div class="co-row"><span>Subtotal</span><span id="coSubtotal">৳0</span></div>
+            <div class="co-row" id="coDiscountRow" style="display:none; color:#4CAF50">
+              <span id="coDiscountLabel">Promo Discount</span>
+              <span id="coDiscount">−৳0</span>
+            </div>
+            <div class="co-row"><span>Delivery Fee</span><span>৳50</span></div>
+            <div class="co-row co-total"><span>Total</span><span id="coTotal">৳50</span></div>
+          </div>
+
+          <div class="checkout-trust-badges">
+            <div class="trust-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Secure Checkout
+            </div>
+            <div class="trust-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              30-min Delivery
+            </div>
+            <div class="trust-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Satisfaction Guarantee
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Delivery + Payment -->
+      <div class="checkout-form-col">
+        <div class="checkout-card">
+          <h3>Delivery Information</h3>
+          <div class="co-form">
+            <div class="form-row">
+              <div class="form-field co-light">
+                <label>Full Name *</label>
+                <input type="text" id="coName" placeholder="John Doe" required />
+              </div>
+              <div class="form-field co-light">
+                <label>Phone *</label>
+                <input type="tel" id="coPhone" placeholder="+880 1XXX-XXXXXX" required />
+              </div>
+            </div>
+            <div class="form-field co-light">
+              <label>Email *</label>
+              <input type="email" id="coEmail" placeholder="you@example.com" required />
+            </div>
+            <div class="form-field co-light">
+              <label>Delivery Address *</label>
+              <textarea id="coAddress" placeholder="House/Flat number, Road, Area, City…" rows="2" required></textarea>
+            </div>
+            <div class="form-row">
+              <div class="form-field co-light">
+                <label>City</label>
+                <select id="coCity">
+                  <option>Dhaka</option><option>Chittagong</option><option>Sylhet</option>
+                  <option>Rajshahi</option><option>Khulna</option><option>Other</option>
+                </select>
+              </div>
+              <div class="form-field co-light">
+                <label>Delivery Time</label>
+                <select id="coDelivTime">
+                  <option>ASAP (15–30 min)</option>
+                  <option>In 1 hour</option>
+                  <option>Schedule for later</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-field co-light">
+              <label>Order Notes</label>
+              <input type="text" id="coNotes" placeholder="Special instructions for the delivery rider…" />
+            </div>
+          </div>
+        </div>
+
+        <div class="checkout-card">
+          <h3>Payment Method</h3>
+          <div class="payment-methods">
+            <label class="pay-method active" id="pm-cash">
+              <input type="radio" name="paymethod" value="cash" checked onchange="selectPayMethod('cash')"/>
+              <div class="pay-method-body">
+                <span class="pay-icon">💵</span>
+                <div><strong>Cash on Delivery</strong><small>Pay when your order arrives</small></div>
+              </div>
+              <div class="pay-check">✓</div>
+            </label>
+            <label class="pay-method" id="pm-bkash">
+              <input type="radio" name="paymethod" value="bkash" onchange="selectPayMethod('bkash')"/>
+              <div class="pay-method-body">
+                <span class="pay-icon">📱</span>
+                <div><strong>bKash</strong><small>Fast mobile payment</small></div>
+              </div>
+              <div class="pay-check">✓</div>
+            </label>
+            <label class="pay-method" id="pm-card">
+              <input type="radio" name="paymethod" value="card" onchange="selectPayMethod('card')"/>
+              <div class="pay-method-body">
+                <span class="pay-icon">💳</span>
+                <div><strong>Credit / Debit Card</strong><small>Visa, Mastercard, Amex</small></div>
+              </div>
+              <div class="pay-check">✓</div>
+            </label>
+          </div>
+
+          <div class="card-fields" id="cardFields" style="display:none">
+            <div class="form-field co-light">
+              <label>Card Number</label>
+              <input type="text" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCard(this)"/>
+            </div>
+            <div class="form-row">
+              <div class="form-field co-light"><label>Expiry</label><input type="text" placeholder="MM / YY" maxlength="7"/></div>
+              <div class="form-field co-light"><label>CVV</label><input type="text" placeholder="123" maxlength="4"/></div>
+            </div>
+          </div>
+
+          <div class="bkash-fields" id="bkashFields" style="display:none">
+            <div class="form-field co-light"><label>bKash Number</label><input type="tel" placeholder="01XXXXXXXXX" /></div>
+            <p class="bkash-note">You'll receive a payment request on your bKash app after placing the order.</p>
+          </div>
+
+          <div class="checkout-guarantee">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Your order is protected by our 100% satisfaction guarantee
+          </div>
+
+          <button class="btn-place-order" onclick="placeCheckoutOrder()">
+            Place Order · <span id="coOrderTotal">৳0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <div class="footer-logo"><span>🍽</span><span>Gourmet<strong>Haven</strong></span></div>
+        <p>Bringing culinary excellence to your table since 2009.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="f-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Our Menu</a></li>
+          <li><a href="reservation.html">Reservation</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <ul class="f-links f-contact">
+          <li><span>📍</span> 123 Culinary Street, Gulshan-2, Dhaka</li>
+          <li><span>📞</span> +880 1700-000000</li>
+          <li><span>✉️</span> hello@gourmet-haven.com</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Opening Hours</h4>
+        <ul class="f-hours">
+          <li><span>Mon – Thu</span><span>11 AM – 10 PM</span></li>
+          <li><span>Fri – Sat</span><span>11 AM – 11 PM</span></li>
+          <li><span>Sunday</span><span>12 PM – 9 PM</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <p>&copy; 2025 Gourmet Haven. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="src/main.js"></script>
+</body>
+</html>

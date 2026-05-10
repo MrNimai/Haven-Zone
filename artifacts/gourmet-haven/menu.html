@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Menu – Gourmet Haven</title>
+  <meta name="description" content="Explore our full menu of signature dishes, from burgers and pizzas to desserts and drinks." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="src/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-plate">🍽</span>
+        <span class="logo-text">Gourmet<strong>Haven</strong></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html"       class="nav-link">Home</a>
+        <a href="menu.html"        class="nav-link">Menu</a>
+        <a href="index.html#about" class="nav-link">About</a>
+        <a href="index.html#gallery" class="nav-link">Gallery</a>
+        <a href="reservation.html" class="nav-link">Reservation</a>
+        <a href="contact.html"     class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn-order-nav" onclick="window.location='menu.html'">Order Now</button>
+        <button class="cart-btn" id="cartBtn" onclick="toggleCart()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="cart-badge" id="cartCount">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner" data-anim="fade-up">
+        <span class="sec-tag">Our Menu</span>
+        <h1>Our Signature <em>Dishes</em></h1>
+        <p>Each dish is handcrafted by our award-winning chefs using the finest seasonal ingredients.<br/>Click any dish to explore the full details and add to your order.</p>
+        <nav class="page-breadcrumb">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span>Menu</span>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="menu-section menu-page-section" id="menu">
+    <div class="container">
+      <div class="menu-controls" data-anim="fade-up">
+        <div class="search-wrap">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="search" id="searchInput" placeholder="Search dishes, categories…" oninput="filterDishes()" />
+        </div>
+        <div class="tabs" id="tabs">
+          <button class="tab active" data-cat="all"        onclick="setTab(this,'all')">All</button>
+          <button class="tab" data-cat="burger"      onclick="setTab(this,'burger')">Burger</button>
+          <button class="tab" data-cat="pizza"       onclick="setTab(this,'pizza')">Pizza</button>
+          <button class="tab" data-cat="appetizers"  onclick="setTab(this,'appetizers')">Appetizers</button>
+          <button class="tab" data-cat="sides"       onclick="setTab(this,'sides')">Sides</button>
+          <button class="tab" data-cat="drinks"      onclick="setTab(this,'drinks')">Drinks</button>
+          <button class="tab" data-cat="desserts"    onclick="setTab(this,'desserts')">Desserts</button>
+          <button class="tab" data-cat="salads"      onclick="setTab(this,'salads')">Salads</button>
+        </div>
+      </div>
+      <div class="dish-grid" id="dishGrid"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <div class="footer-logo"><span>🍽</span><span>Gourmet<strong>Haven</strong></span></div>
+        <p>Bringing culinary excellence to your table since 2009. Every dish is a celebration of flavour, craft, and tradition.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="f-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Our Menu</a></li>
+          <li><a href="reservation.html">Reservation</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <ul class="f-links f-contact">
+          <li><span>📍</span> 123 Culinary Street, Gulshan-2, Dhaka</li>
+          <li><span>📞</span> +880 1700-000000</li>
+          <li><span>✉️</span> hello@gourmet-haven.com</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Opening Hours</h4>
+        <ul class="f-hours">
+          <li><span>Mon – Thu</span><span>11 AM – 10 PM</span></li>
+          <li><span>Fri – Sat</span><span>11 AM – 11 PM</span></li>
+          <li><span>Sunday</span><span>12 PM – 9 PM</span></li>
+        </ul>
+        <div class="newsletter">
+          <p>Get exclusive offers:</p>
+          <div class="nl-row">
+            <input type="email" placeholder="Your email" id="nlEmail" />
+            <button onclick="subscribeNewsletter()">Go</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <p>&copy; 2025 Gourmet Haven. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="src/main.js"></script>
+</body>
+</html>

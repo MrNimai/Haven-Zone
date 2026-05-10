@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us – Gourmet Haven</title>
+  <meta name="description" content="Get in touch with Gourmet Haven. We're here to help with any questions or feedback." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="src/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-plate">🍽</span>
+        <span class="logo-text">Gourmet<strong>Haven</strong></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html"       class="nav-link">Home</a>
+        <a href="menu.html"        class="nav-link">Menu</a>
+        <a href="index.html#about" class="nav-link">About</a>
+        <a href="index.html#gallery" class="nav-link">Gallery</a>
+        <a href="reservation.html" class="nav-link">Reservation</a>
+        <a href="contact.html"     class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn-order-nav" onclick="window.location='menu.html'">Order Now</button>
+        <button class="cart-btn" id="cartBtn" onclick="toggleCart()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="cart-badge" id="cartCount">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner" data-anim="fade-up">
+        <span class="sec-tag">Get In Touch</span>
+        <h1>We'd Love to <em>Hear From You</em></h1>
+        <p>Questions, feedback, or special requests? We're always here for you.<br/>Send us a message and we'll respond within 2 hours.</p>
+        <nav class="page-breadcrumb">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span>Contact</span>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT CARDS -->
+  <section class="contact-cards-section">
+    <div class="container">
+      <div class="contact-top-cards">
+        <div class="contact-top-card" data-anim="fade-up">
+          <div class="ctc-icon">📍</div>
+          <h4>Our Location</h4>
+          <p>123 Culinary Street, Gulshan-2<br/>Dhaka 1212, Bangladesh</p>
+          <a href="https://maps.google.com" target="_blank" class="ctc-link">Get Directions →</a>
+        </div>
+        <div class="contact-top-card" data-anim="fade-up">
+          <div class="ctc-icon">📞</div>
+          <h4>Phone</h4>
+          <p>+880 1700-000000<br/>+880 2-9876543</p>
+          <a href="tel:+8801700000000" class="ctc-link">Call Now →</a>
+        </div>
+        <div class="contact-top-card" data-anim="fade-up">
+          <div class="ctc-icon">✉️</div>
+          <h4>Email</h4>
+          <p>hello@gourmet-haven.com<br/>reservations@gourmet-haven.com</p>
+          <a href="mailto:hello@gourmet-haven.com" class="ctc-link">Send Email →</a>
+        </div>
+        <div class="contact-top-card" data-anim="fade-up">
+          <div class="ctc-icon">🕐</div>
+          <h4>Opening Hours</h4>
+          <p>Mon – Thu: 11 AM – 10 PM<br/>Fri – Sat: 11 AM – 11 PM<br/>Sunday: 12 PM – 9 PM</p>
+          <a href="reservation.html" class="ctc-link">Reserve a Table →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM + MAP -->
+  <section class="contact-main-section">
+    <div class="container">
+      <div class="contact-full-grid">
+        <!-- Map -->
+        <div class="contact-left" data-anim="fade-up">
+          <h3>Find Us on the <em>Map</em></h3>
+          <p class="contact-map-lead">We are located in the heart of Gulshan-2, easily accessible from across Dhaka. Free parking available.</p>
+          <div class="map-wrap map-wrap--tall">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.6792648849065!2d90.41394137522583!3d23.793659886454427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c71e30000001%3A0x20b28b7d7b4d14bb!2sGulshan%202%2C%20Dhaka%201212!5e0!3m2!1sen!2sbd!4v1713000000000!5m2!1sen!2sbd"
+              width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy">
+            </iframe>
+          </div>
+          <div class="contact-social-row">
+            <p>Follow us for daily specials:</p>
+            <div class="social-links">
+              <a href="#" aria-label="Facebook" class="social-a"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+              <a href="#" aria-label="Instagram" class="social-a"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+              <a href="#" aria-label="Twitter" class="social-a"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact form -->
+        <div class="contact-right" data-anim="fade-up">
+          <form class="contact-form" action="https://formspree.io/f/xykpavkz" method="POST" id="contactForm" onsubmit="handleFormSubmit(event, this)">
+            <input type="hidden" name="_subject" value="New Message – Gourmet Haven Website" />
+            <h3>Send Us a Message</h3>
+            <p class="contact-form-sub">Fill in the form below and we'll get back to you promptly — usually within 2 hours.</p>
+            <div class="form-field">
+              <label for="con-name">Full Name *</label>
+              <input id="con-name" type="text" name="name" placeholder="Your full name" required />
+            </div>
+            <div class="form-field">
+              <label for="con-email">Email Address *</label>
+              <input id="con-email" type="email" name="email" placeholder="you@example.com" required />
+            </div>
+            <div class="form-field">
+              <label for="con-phone">Phone Number</label>
+              <input id="con-phone" type="tel" name="phone" placeholder="+880 1XXX-XXXXXX" />
+            </div>
+            <div class="form-field">
+              <label for="con-subject">Subject *</label>
+              <select id="con-subject" name="subject" required>
+                <option value="">Select a subject</option>
+                <option>General Inquiry</option>
+                <option>Reservation Help</option>
+                <option>Feedback / Review</option>
+                <option>Corporate / Event Booking</option>
+                <option>Complaint</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="con-msg">Message *</label>
+              <textarea id="con-msg" name="message" placeholder="Tell us how we can help you…" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn-primary btn-full">
+              <span class="btn-label">Send Message</span>
+              <span class="btn-loading" style="display:none">Sending…</span>
+            </button>
+            <p class="form-privacy">We'll never share your information. Privacy guaranteed.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <div class="footer-logo"><span>🍽</span><span>Gourmet<strong>Haven</strong></span></div>
+        <p>Bringing culinary excellence to your table since 2009.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="f-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Our Menu</a></li>
+          <li><a href="reservation.html">Reservation</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <ul class="f-links f-contact">
+          <li><span>📍</span> 123 Culinary Street, Gulshan-2, Dhaka</li>
+          <li><span>📞</span> +880 1700-000000</li>
+          <li><span>✉️</span> hello@gourmet-haven.com</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Opening Hours</h4>
+        <ul class="f-hours">
+          <li><span>Mon – Thu</span><span>11 AM – 10 PM</span></li>
+          <li><span>Fri – Sat</span><span>11 AM – 11 PM</span></li>
+          <li><span>Sunday</span><span>12 PM – 9 PM</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <p>&copy; 2025 Gourmet Haven. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="src/main.js"></script>
+</body>
+</html>
