@@ -1,0 +1,114 @@
+Fix and upgrade the existing restaurant website project for "Gourmet Haven".
+
+IMPORTANT:
+The website already exists. You are NOT creating from scratch.
+You are ONLY fixing missing features, improving structure, and adding required functionality.
+
+---
+
+# 🔴 CRITICAL FIXES REQUIRED
+
+## 1. MULTI-PAGE ISSUE
+The website must behave as a proper multi-page system.
+
+- Menu cards are currently NOT clickable → FIX THIS.
+- Each menu card MUST open a dedicated full page (menu-details page).
+- This page must show:
+  - Large food image
+  - Name of item
+  - Price
+  - Quantity selector (+ / -)
+  - Add to cart button
+  - Full description
+  - Ingredients
+  - Preparation time
+  - Calories
+  - Related items
+
+---
+
+## 2. RESERVATION + CONTACT FORMS (MANDATORY FIX)
+
+Use EXACT Formspree integration:
+
+```html
+<form action="https://formspree.io/f/xykpavkz" method="POST">
+Ensure both Reservation and Contact pages use this form.
+Forms must be fully functional and properly styled.
+Fields must validate properly.
+3. CHECKOUT PAGE (IMPORTANT)
+
+The checkout page MUST be a full standalone page.
+
+Use the provided HTML structure exactly as base:
+
+Do not break navigation
+Ensure cart system works
+Ensure order summary section is functional
+Ensure responsive layout
+
+The checkout page must include:
+
+Order summary
+Product list
+Quantity update
+Total price calculation
+Payment section UI
+Place order button
+4. MENU SYSTEM FIX
+Menu cards must be clickable
+Clicking a card should NOT just open image
+It MUST open full product detail page
+Maintain data flow between pages (cart system)
+5. CONTENT IMPROVEMENT (ALL PAGES)
+
+Enhance ALL pages with more professional content:
+
+Add:
+Better food descriptions
+Marketing copy
+Section headings
+Subheadings
+CTA buttons
+Testimonials
+Feature highlights
+Restaurant branding text
+6. UI/UX IMPROVEMENTS
+Make design more modern and premium
+Improve spacing and layout consistency
+Add smooth hover effects on cards
+Add animations (fade, slide, hover lift)
+Improve mobile responsiveness
+Ensure consistent typography
+Improve button design and visibility
+7. JAVASCRIPT FIXES
+
+Implement or fix:
+
+Cart add/remove functionality
+Quantity increase/decrease system
+Total price calculation
+Menu filtering system
+Navigation between pages
+Smooth interactions
+8. CHECKOUT PAGE REQUIREMENT
+
+Ensure this provided checkout structure is used and enhanced:
+
+(Keep existing HTML structure intact and improve inside content section)
+
+Make checkout fully functional
+Ensure cart data is displayed dynamically
+Ensure responsive layout
+Improve UI styling
+🎯 FINAL GOAL
+
+The final result must be:
+
+Fully working multi-page restaurant website
+Clickable menu system with full product pages
+Functional cart and checkout system
+Working reservation and contact forms (Formspree)
+Modern premium UI/UX
+Mobile responsive
+Production-level frontend project
