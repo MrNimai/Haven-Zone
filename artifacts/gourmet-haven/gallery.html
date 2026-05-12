@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery – Gourmet Haven</title>
+  <meta name="description" content="A visual journey through Gourmet Haven — our dining rooms, dishes, chefs, and moments that make us special." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="src/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-plate">🍽</span>
+        <span class="logo-text">Haven<strong>Zone</strong></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html"       class="nav-link">Home</a>
+        <a href="menu.html"        class="nav-link">Menu</a>
+        <a href="about.html"       class="nav-link">About</a>
+        <a href="gallery.html"     class="nav-link">Gallery</a>
+        <a href="reservation.html" class="nav-link">Reservation</a>
+        <a href="contact.html"     class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn-order-nav" onclick="window.location='menu.html'">Order Now</button>
+        <button class="cart-btn" id="cartBtn" onclick="toggleCart()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="cart-badge" id="cartCount">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner" data-anim="fade-up">
+        <span class="sec-tag">Visual Journey</span>
+        <h1>Our Gallery — <em>In Pictures</em></h1>
+        <p>From the first slice to the last sip — a look inside the world of Gourmet Haven.<br/>Every image tells a story we're proud to share.</p>
+        <nav class="page-breadcrumb">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span>Gallery</span>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery-page-section">
+    <div class="container">
+
+      <!-- FILTER TABS -->
+      <div class="gallery-filter-tabs" data-anim="fade-up">
+        <button class="gallery-tab active" onclick="filterGallery(this,'all')">All Photos</button>
+        <button class="gallery-tab" onclick="filterGallery(this,'food')">Food & Dishes</button>
+        <button class="gallery-tab" onclick="filterGallery(this,'ambiance')">Ambiance</button>
+        <button class="gallery-tab" onclick="filterGallery(this,'kitchen')">Kitchen</button>
+        <button class="gallery-tab" onclick="filterGallery(this,'events')">Events</button>
+      </div>
+
+      <!-- PHOTO COUNT -->
+      <div class="gallery-count" id="galleryCount" data-anim="fade-up">Showing <strong>16 photos</strong></div>
+
+      <!-- CARD GRID -->
+      <div class="gal-grid" id="galleryGrid">
+
+        <!-- ROW 1: wide + square -->
+        <div class="gal-card gal-wide" data-cat="ambiance" data-anim="fade-up"
+             onclick="openLightbox(0)">
+          <div class="gal-card-inner">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1000&q=85&auto=format&fit=crop" alt="Main Dining Hall" loading="lazy" />
+            <span class="gal-tag">Ambiance</span>
+            <div class="gal-info">
+              <h5>Main Dining Hall</h5>
+              <p>Warm candlelight and the hum of great conversation</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gal-card" data-cat="food" data-anim="fade-up"
+             onclick="openLightbox(1)">
+          <div class="gal-card-inner">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=85&auto=format&fit=crop" alt="Signature Salad" loading="lazy" />
+            <span class="gal-tag">Food</span>
+            <div class="gal-info">
+              <h5>Signature Salad</h5>
+              <p>Farm-fresh greens with lemon-herb vinaigrette</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROW 2: three equal cards -->
+        <div class="gal-card" data-cat="food" data-anim="fade-up"
+             onclick="openLightbox(2)">
+          <div class="gal-card-inner">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=85&auto=format&fit=crop" alt="Classic Chicken Burger" loading="lazy" />
+            <span class="gal-tag">Food</span>
+            <div class="gal-info">
+              <h5>Classic Chicken Burger</h5>
+              <p>12-hour marinated, flame-grilled to perfection</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gal-card" data-cat="food" data-anim="fade-up"
+             onclick="openLightbox(3)">
+          <div class="gal-card-inner">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=85&auto=format&fit=crop" alt="Beef Pizza Supreme" loading="lazy" />
+            <span class="gal-tag">Food</span>
+            <div class="gal-info">
+              <h5>Beef Pizza Supreme</h5>
+              <p>Stone-baked with slow-braised beef and three cheeses</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gal-card" data-cat="kitchen" data-anim="fade-up"
+             onclick="openLightbox(4)">
+          <div class="gal-card-inner">
+            <img src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?w=600&q=85&auto=format&fit=crop" alt="Chef at Work" loading="lazy" />
+            <span class="gal-tag">Kitchen</span>
+            <div class="gal-info">
+              <h5>Precision at Every Station</h5>
+              <p>Every plate leaves with the same care as the first</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROW 3: square + wide -->
+        <div class="gal-card" data-cat="food" data-anim="fade-up"
+             onclick="openLightbox(5)">
+          <div class="gal-card-inner">
+            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&q=85&auto=format&fit=crop" alt="Chocolate Lava Cake" loading="lazy" />
+            <span class="gal-tag">Desserts</span>
+            <div class="gal-info">
+              <h5>Chocolate Lava Cake</h5>
+              <p>72% Valrhona dark chocolate — molten in the middle</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gal-card gal-wide" data-cat="kitchen" data-anim="fade-up"
+             onclick="openLightbox(6)">
+          <div class="gal-card-inner">
+            <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=1000&q=85&auto=format&fit=crop" alt="Our Kitchen Team" loading="lazy" />
+            <span class="gal-tag">Kitchen</span>
+            <div class="gal-info">
+              <h5>Our Kitchen Team</h5>
+              <p>18 expert chefs working in perfect harmony every service</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROW 4: three equal cards -->
+        <div class="gal-card" data-cat="drinks" data-anim="fade-up"
+             onclick="openLightbox(7)">
+          <div class="gal-card-inner">
+            <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=600&q=85&auto=format&fit=crop" alt="Craft Cocktails" loading="lazy" />
+            <span class="gal-tag">Drinks</span>
+            <div class="gal-info">
+              <h5>Craft Cocktails</h5>
+              <p>Hand-crafted seasonal drinks by our mixology team</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gal-card" data-cat="ambiance" data-anim="fade-up"
+             onclick="openLightbox(8)">
+          <div class="gal-card-inner">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=85&auto=format&fit=crop" alt="Terrace Seating" loading="lazy" />
+            <span class="gal-tag">Ambiance</span>
+            <div class="gal-info">
+              <h5>Rooftop Terrace</h5>
+              <p>Al fresco dining under string lights</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gal-card" data-cat="food" data-anim="fade-up"
+             onclick="openLightbox(9)">
+          <div class="gal-card-inner">
+            <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=600&q=85&auto=format&fit=crop" alt="Loaded Fries" loading="lazy" />
+            <span class="gal-tag">Food</span>
+            <div class="gal-info">
+              <h5>Loaded Fries</h5>
+              <p>Double-fried with three-cheese sauce and smoked bacon</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROW 5: wide + square -->
+        <div class="gal-card gal-wide" data-cat="events" data-anim="fade-up"
+             onclick="openLightbox(10)">
+          <div class="gal-card-inner">
+            <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1000&q=85&auto=format&fit=crop" alt="Private Dining Event" loading="lazy" />
+            <span class="gal-tag">Events</span>
+            <div class="gal-info">
+              <h5>Private Dining Room</h5>
+              <p>Bespoke events for up to 30 guests — birthdays, anniversaries, corporate</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gal-card" data-cat="events" data-anim="fade-up"
+             onclick="openLightbox(11)">
+          <div class="gal-card-inner">
+            <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=85&auto=format&fit=crop" alt="Wine Tasting" loading="lazy" />
+            <span class="gal-tag">Events</span>
+            <div class="gal-info">
+              <h5>Wine & Dine Evenings</h5>
+              <p>Monthly curated wine pairing dinners</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROW 6: three equal cards -->
+        <div class="gal-card" data-cat="food" data-anim="fade-up"
+             onclick="openLightbox(12)">
+          <div class="gal-card-inner">
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=85&auto=format&fit=crop" alt="Garden Fresh Salad" loading="lazy" />
+            <span class="gal-tag">Food</span>
+            <div class="gal-info">
+              <h5>Garden Fresh Salad</h5>
+              <p>Heirloom tomatoes, shaved fennel, olive oil</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gal-card" data-cat="ambiance" data-anim="fade-up"
+             onclick="openLightbox(13)">
+          <div class="gal-card-inner">
+            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=85&auto=format&fit=crop" alt="Pastry Display" loading="lazy" />
+            <span class="gal-tag">Ambiance</span>
+            <div class="gal-info">
+              <h5>Our Pastry Display</h5>
+              <p>Artisan desserts crafted fresh each morning</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gal-card" data-cat="ambiance" data-anim="fade-up"
+             onclick="openLightbox(14)">
+          <div class="gal-card-inner">
+            <img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=600&q=85&auto=format&fit=crop" alt="Bar & Lounge" loading="lazy" />
+            <span class="gal-tag">Ambiance</span>
+            <div class="gal-info">
+              <h5>Bar & Lounge</h5>
+              <p>Unwind with a handcrafted cocktail before dinner</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROW 7: square + wide -->
+        <div class="gal-card" data-cat="food" data-anim="fade-up"
+             onclick="openLightbox(15)">
+          <div class="gal-card-inner">
+            <img src="https://images.unsplash.com/photo-1627308595229-7830a5c18106?w=600&q=85&auto=format&fit=crop" alt="BBQ Wings" loading="lazy" />
+            <span class="gal-tag">Food</span>
+            <div class="gal-info">
+              <h5>BBQ Chicken Wings</h5>
+              <p>Slow-cooked, glazed with our secret house BBQ sauce</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gal-card gal-wide" data-cat="kitchen" data-anim="fade-up"
+             onclick="openLightbox(16)">
+          <div class="gal-card-inner">
+            <img src="https://images.unsplash.com/photo-1551218372-a8789b81b253?w=1000&q=85&auto=format&fit=crop" alt="Pastry Chef" loading="lazy" />
+            <span class="gal-tag">Kitchen</span>
+            <div class="gal-info">
+              <h5>Artisan Pastry Station</h5>
+              <p>Chef Tariq's award-winning dessert creations take shape here every morning</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /gal-grid -->
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox-backdrop" id="lightboxBackdrop" onclick="closeLightbox()">
+    <button class="lb-close" onclick="closeLightbox()">✕</button>
+    <button class="lb-prev" onclick="event.stopPropagation(); moveLightbox(-1)">&#8249;</button>
+    <button class="lb-next" onclick="event.stopPropagation(); moveLightbox(1)">&#8250;</button>
+    <div class="lb-content" onclick="event.stopPropagation()">
+      <img id="lbImg" src="" alt="" />
+      <div class="lb-meta">
+        <span class="lb-tag" id="lbTag"></span>
+        <div>
+          <h4 id="lbTitle"></h4>
+          <p id="lbDesc"></p>
+        </div>
+        <span class="lb-counter" id="lbCounter"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- GALLERY CTA -->
+  <section class="gallery-cta-section">
+    <div class="container">
+      <div class="gallery-cta-inner" data-anim="fade-up">
+        <div class="gallery-cta-text">
+          <h2>Inspired by What You See? <em>Come Taste It.</em></h2>
+          <p>Pictures can only get you so far. Reserve a table and experience the real thing.</p>
+        </div>
+        <div class="gallery-cta-btns">
+          <a href="reservation.html" class="btn-primary">Reserve a Table</a>
+          <a href="menu.html" class="btn-ghost">View Full Menu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <div class="footer-logo"><span>🍽</span><span class="logo-text">Haven<strong>Zone</strong></span></div>
+        <p>Bringing culinary excellence to your table since 2009.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="f-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Our Menu</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="reservation.html">Reservation</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <ul class="f-links f-contact">
+          <li><span>📍</span> 123 Culinary Street, Gulshan-2, Dhaka</li>
+          <li><span>📞</span> +880 1700-000000</li>
+          <li><span>✉️</span> hello@gourmet-haven.com</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Opening Hours</h4>
+        <ul class="f-hours">
+          <li><span>Mon – Thu</span><span>11 AM – 10 PM</span></li>
+          <li><span>Fri – Sat</span><span>11 AM – 11 PM</span></li>
+          <li><span>Sunday</span><span>12 PM – 9 PM</span></li>
+        </ul>
+        <div class="newsletter">
+          <p>Get exclusive offers:</p>
+          <div class="nl-row">
+            <input type="email" placeholder="Your email" id="nlEmail" />
+            <button onclick="subscribeNewsletter()">Go</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <p>&copy; 2025 Gourmet Haven. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="src/main.js"></script>
+  <script>
+    /* ─── Gallery Filter ─────────────────────── */
+    function filterGallery(btn, cat) {
+      document.querySelectorAll('.gallery-tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      const cards = document.querySelectorAll('.gal-card');
+      let visible = 0;
+      cards.forEach(card => {
+        const match = cat === 'all' || card.dataset.cat === cat;
+        card.style.display = match ? '' : 'none';
+        if (match) visible++;
+      });
+      const countEl = document.getElementById('galleryCount');
+      if (countEl) countEl.innerHTML = `Showing <strong>${visible} photo${visible !== 1 ? 's' : ''}</strong>`;
+    }
+
+    /* ─── Lightbox ───────────────────────────── */
+    const lbItems = [];
+    document.querySelectorAll('.gal-card').forEach(card => {
+      lbItems.push({
+        src:   card.querySelector('img').src,
+        alt:   card.querySelector('img').alt,
+        tag:   card.querySelector('.gal-tag').textContent,
+        title: card.querySelector('h5').textContent,
+        desc:  card.querySelector('p').textContent
+      });
+    });
+    let lbIndex = 0;
+
+    function openLightbox(i) {
+      lbIndex = i;
+      renderLightbox();
+      document.getElementById('lightboxBackdrop').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightboxBackdrop').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function moveLightbox(dir) {
+      lbIndex = (lbIndex + dir + lbItems.length) % lbItems.length;
+      renderLightbox();
+    }
+    function renderLightbox() {
+      const item = lbItems[lbIndex];
+      const img = document.getElementById('lbImg');
+      img.style.opacity = '0';
+      img.src = item.src;
+      img.alt = item.alt;
+      img.onload = () => { img.style.opacity = '1'; };
+      document.getElementById('lbTag').textContent    = item.tag;
+      document.getElementById('lbTitle').textContent  = item.title;
+      document.getElementById('lbDesc').textContent   = item.desc;
+      document.getElementById('lbCounter').textContent = `${lbIndex + 1} / ${lbItems.length}`;
+    }
+    document.addEventListener('keydown', e => {
+      const lb = document.getElementById('lightboxBackdrop');
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'ArrowRight') moveLightbox(1);
+      if (e.key === 'ArrowLeft')  moveLightbox(-1);
+      if (e.key === 'Escape')     closeLightbox();
+    });
+  </script>
+</body>
+</html>

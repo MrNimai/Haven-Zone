@@ -222,6 +222,14 @@ function initMobileNavClose() {
   document.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', closeMobileMenu));
 }
 
+  const hb = document.querySelector('.hamburger');
+  const nl = document.querySelector('.nav-links');
+
+  hb.addEventListener('click', () => {
+    hb.classList.toggle('open');
+    nl.classList.toggle('active');
+  });
+
 /* ─── ANIMATIONS ─────────────────────────────────────── */
 function initAnimations() {
   const observer = new IntersectionObserver((entries) => {

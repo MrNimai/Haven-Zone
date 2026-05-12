@@ -1,5 +1,8 @@
 import { defineConfig } from "vite";
 import path from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const rawPort = process.env.PORT;
 
@@ -19,18 +22,18 @@ const basePath = process.env.BASE_PATH ?? "/";
 
 export default defineConfig({
   base: basePath,
-  root: path.resolve(import.meta.dirname),
+  root: path.resolve(__dirname),
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    outDir: path.resolve(__dirname, "dist/public"),
     emptyOutDir: true,
     rollupOptions: {
       input: {
-        main:        path.resolve(import.meta.dirname, "index.html"),
-        menu:        path.resolve(import.meta.dirname, "menu.html"),
-        dish:        path.resolve(import.meta.dirname, "dish.html"),
-        reservation: path.resolve(import.meta.dirname, "reservation.html"),
-        contact:     path.resolve(import.meta.dirname, "contact.html"),
-        checkout:    path.resolve(import.meta.dirname, "checkout.html"),
+        main: path.resolve(__dirname, "index.html"),
+        menu: path.resolve(__dirname, "menu.html"),
+        dish: path.resolve(__dirname, "dish.html"),
+        reservation: path.resolve(__dirname, "reservation.html"),
+        contact: path.resolve(__dirname, "contact.html"),
+        checkout: path.resolve(__dirname, "checkout.html"),
       },
     },
   },

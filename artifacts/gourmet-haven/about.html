@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us – Gourmet Haven</title>
+  <meta name="description" content="Discover the story behind Gourmet Haven — our history, our chefs, and our passion for exceptional food." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="src/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-plate">🍽</span>
+        <span class="logo-text">Haven<strong>Zone</strong></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html"       class="nav-link">Home</a>
+        <a href="menu.html"        class="nav-link">Menu</a>
+        <a href="about.html"       class="nav-link">About</a>
+        <a href="gallery.html"     class="nav-link">Gallery</a>
+        <a href="reservation.html" class="nav-link">Reservation</a>
+        <a href="contact.html"     class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn-order-nav" onclick="window.location='menu.html'">Order Now</button>
+        <button class="cart-btn" id="cartBtn" onclick="toggleCart()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="cart-badge" id="cartCount">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero page-hero--dark">
+    <div class="container">
+      <div class="page-hero-inner" data-anim="fade-up">
+        <span class="sec-tag sec-tag--light">Our Story</span>
+        <h1>Passion on a <em>Plate</em> Since 2009</h1>
+        <p>Born from a love of great food and warm hospitality, Gourmet Haven has grown from a 12-seat bistro into Dhaka's most beloved dining destination — without ever losing its soul.</p>
+        <nav class="page-breadcrumb page-breadcrumb--light">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span>About Us</span>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR STORY -->
+  <section class="about-story-section">
+    <div class="container">
+      <div class="about-story-grid">
+        <div class="about-story-imgs" data-anim="fade-up">
+          <div class="about-img-main">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=85&auto=format&fit=crop" alt="Gourmet Haven dining room" loading="lazy" />
+          </div>
+          <div class="about-img-secondary">
+            <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=400&q=80&auto=format&fit=crop" alt="Our kitchen" loading="lazy" />
+            <div class="about-img-stat">
+              <span class="about-stat-n">15</span>
+              <span class="about-stat-l">Years of Excellence</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-story-text" data-anim="fade-up">
+          <span class="sec-tag">Who We Are</span>
+          <h2>A Restaurant Built on <em>Love</em> for Food</h2>
+          <p>It all started in 2009, when founder and head chef Karim Hossain returned to Dhaka after a decade training in Paris, Lyon, and Tokyo. He had a simple but ambitious dream: to create a space where world-class culinary craft meets the warmth and generosity of Bangladeshi hospitality.</p>
+          <p>Starting with just 12 seats and a hand-written menu, Gourmet Haven quickly earned a loyal following. Word spread — not through advertising, but through the language every great restaurant speaks: extraordinary food, made with genuine care.</p>
+          <p>Today, we seat 120 guests across three dining rooms and a private events space, but the spirit remains unchanged. Every dish tells a story. Every meal creates a memory.</p>
+          <div class="about-story-milestones">
+            <div class="milestone">
+              <span class="milestone-year">2009</span>
+              <p>Founded with 12 seats in Gulshan-2</p>
+            </div>
+            <div class="milestone">
+              <span class="milestone-year">2013</span>
+              <p>Awarded Best New Restaurant, Dhaka Food Awards</p>
+            </div>
+            <div class="milestone">
+              <span class="milestone-year">2018</span>
+              <p>Expanded to 120 seats; launched online ordering</p>
+            </div>
+            <div class="milestone">
+              <span class="milestone-year">2024</span>
+              <p>Ranked #1 Restaurant in Dhaka by Daily Star readers</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BANNER -->
+  <section class="about-stats-banner">
+    <div class="container">
+      <div class="about-stats-grid">
+        <div class="about-stat-item" data-anim="fade-up">
+          <span class="about-stat-big">10K+</span>
+          <span class="about-stat-desc">Happy Customers</span>
+        </div>
+        <div class="about-stat-item" data-anim="fade-up">
+          <span class="about-stat-big">50+</span>
+          <span class="about-stat-desc">Signature Dishes</span>
+        </div>
+        <div class="about-stat-item" data-anim="fade-up">
+          <span class="about-stat-big">15</span>
+          <span class="about-stat-desc">Years of Excellence</span>
+        </div>
+        <div class="about-stat-item" data-anim="fade-up">
+          <span class="about-stat-big">4.9</span>
+          <span class="about-stat-desc">Average Rating</span>
+        </div>
+        <div class="about-stat-item" data-anim="fade-up">
+          <span class="about-stat-big">18</span>
+          <span class="about-stat-desc">Expert Chefs</span>
+        </div>
+        <div class="about-stat-item" data-anim="fade-up">
+          <span class="about-stat-big">12+</span>
+          <span class="about-stat-desc">Industry Awards</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="why-section why-section--about">
+    <div class="container">
+      <div class="sec-header" data-anim="fade-up">
+        <span class="sec-tag">Our Promise</span>
+        <h2>What Makes Us <em>Different</em></h2>
+        <p>We believe great dining is about more than food — it's about how you feel when you leave.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card" data-anim="fade-up">
+          <div class="why-icon-wrap" style="--ic:#FF5722;--ib:rgba(255,87,34,.1)">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--ic)" stroke-width="1.8"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+          </div>
+          <h4>Global Techniques, Local Heart</h4>
+          <p>Our chefs trained across three continents but cook with the soul of Bangladesh. Every dish is a dialogue between the world's best culinary traditions and our local heritage.</p>
+        </div>
+        <div class="why-card" data-anim="fade-up">
+          <div class="why-icon-wrap" style="--ic:#4CAF50;--ib:rgba(76,175,80,.1)">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--ic)" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h4>Farm-to-Table Sourcing</h4>
+          <p>We partner directly with local organic farms for produce harvested the same morning it reaches your plate. Every ingredient is chosen with intention — no compromises.</p>
+        </div>
+        <div class="why-card" data-anim="fade-up">
+          <div class="why-icon-wrap" style="--ic:#2196F3;--ib:rgba(33,150,243,.1)">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--ic)" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          </div>
+          <h4>Genuine Hospitality</h4>
+          <p>Our front-of-house team trains for 6 months before ever serving a guest. Service isn't a job title here — it's a calling. You'll feel the difference the moment you walk in.</p>
+        </div>
+        <div class="why-card" data-anim="fade-up">
+          <div class="why-icon-wrap" style="--ic:#FFC107;--ib:rgba(255,193,7,.1)">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--ic)" stroke-width="1.8"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          </div>
+          <h4>Award-Winning Quality</h4>
+          <p>Twelve industry awards and counting — but the only award that matters to us is the look on your face when the food arrives. We never stop raising our own bar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEET THE CHEFS -->
+  <section class="chefs-section">
+    <div class="container">
+      <div class="sec-header" data-anim="fade-up">
+        <span class="sec-tag">The Team</span>
+        <h2>Meet the <em>Chefs</em> Behind the Magic</h2>
+        <p>Our kitchen is led by passionate professionals who live and breathe food.</p>
+      </div>
+      <div class="chefs-grid">
+
+        <div class="chef-card" data-anim="fade-up">
+          <div class="chef-img-wrap">
+            <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=500&q=80&auto=format&fit=crop" alt="Chef Karim Hossain" loading="lazy" />
+            <div class="chef-overlay">
+              <p>"Food is memory. Every dish I cook is a love letter to someone, somewhere."</p>
+            </div>
+          </div>
+          <div class="chef-info">
+            <h4>Karim Hossain</h4>
+            <span class="chef-title">Founder & Head Chef</span>
+            <p>Trained in Paris and Tokyo with 20+ years' experience. Specialises in French-Asian fusion with Bangladeshi soul.</p>
+            <div class="chef-tags">
+              <span>French Cuisine</span>
+              <span>Japanese Technique</span>
+              <span>Pastry</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="chef-card" data-anim="fade-up">
+          <div class="chef-img-wrap">
+            <img src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?w=500&q=80&auto=format&fit=crop" alt="Chef Priya Sen" loading="lazy" />
+            <div class="chef-overlay">
+              <p>"I want every guest to taste the care we put into each component of a dish."</p>
+            </div>
+          </div>
+          <div class="chef-info">
+            <h4>Priya Sen</h4>
+            <span class="chef-title">Executive Sous Chef</span>
+            <p>Culinary Institute of America alumna. Brings a New York–meets-Kolkata sensibility to everything she creates.</p>
+            <div class="chef-tags">
+              <span>Modern Indian</span>
+              <span>Plating Art</span>
+              <span>Seafood</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="chef-card" data-anim="fade-up">
+          <div class="chef-img-wrap">
+            <img src="https://images.unsplash.com/photo-1551218372-a8789b81b253?w=500&q=80&auto=format&fit=crop" alt="Chef Tariq Rahman" loading="lazy" />
+            <div class="chef-overlay">
+              <p>"A perfect dessert should be the last thing you think about before you fall asleep."</p>
+            </div>
+          </div>
+          <div class="chef-info">
+            <h4>Tariq Rahman</h4>
+            <span class="chef-title">Pastry & Desserts Chef</span>
+            <p>Le Cordon Bleu London graduate. Creator of our legendary Chocolate Lava Cake and the seasonal tasting dessert menu.</p>
+            <div class="chef-tags">
+              <span>Patisserie</span>
+              <span>Chocolate Work</span>
+              <span>Sugar Art</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES / PHILOSOPHY -->
+  <section class="about-values-section">
+    <div class="container">
+      <div class="about-values-grid">
+        <div class="about-values-text" data-anim="fade-up">
+          <span class="sec-tag">Our Philosophy</span>
+          <h2>Food is More Than <em>Fuel</em> — It's Connection</h2>
+          <p>We believe the best restaurants are places where people feel completely at ease. Where the food is extraordinary but the atmosphere is warm and unpretentious. Where you lose track of time because the conversation is so good — and the food keeps giving you reasons to linger.</p>
+          <p>That's the experience we build every day at Gourmet Haven. Not a transaction, but a genuine moment of joy.</p>
+          <div class="about-values-list">
+            <div class="av-item">
+              <div class="av-dot"></div>
+              <div>
+                <strong>Zero Waste Kitchen</strong>
+                <p>We compost, repurpose, and plan to ensure nothing goes to landfill.</p>
+              </div>
+            </div>
+            <div class="av-item">
+              <div class="av-dot"></div>
+              <div>
+                <strong>Living Wage for All Staff</strong>
+                <p>Every team member — front and back of house — earns a living wage plus benefits.</p>
+              </div>
+            </div>
+            <div class="av-item">
+              <div class="av-dot"></div>
+              <div>
+                <strong>Community Partnership</strong>
+                <p>We donate surplus meals to local shelters every evening without exception.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-values-img" data-anim="fade-up">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=85&auto=format&fit=crop" alt="Our kitchen in action" loading="lazy" />
+          <div class="about-values-badge">
+            <span>🌿</span>
+            <div>
+              <strong>Certified Sustainable</strong>
+              <small>Green Restaurant 2024</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT CTA -->
+  <section class="home-cta-section">
+    <div class="container">
+      <div class="home-cta-inner" data-anim="fade-up">
+        <h2>Come Experience It <em>Yourself</em></h2>
+        <p>Words can only tell part of the story. Reserve your table and let the food do the rest of the talking.</p>
+        <div class="home-cta-btns">
+          <a href="reservation.html" class="btn-primary">Book a Table</a>
+          <a href="menu.html" class="btn-ghost">See Our Menu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <div class="footer-logo"><span>🍽</span><span class="logo-text">Haven<strong>Zone</strong></span></div>
+        <p>Bringing culinary excellence to your table since 2009. Every dish is a celebration of flavour, craft, and tradition.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="f-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Our Menu</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="reservation.html">Reservation</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <ul class="f-links f-contact">
+          <li><span>📍</span> 123 Culinary Street, Gulshan-2, Dhaka</li>
+          <li><span>📞</span> +880 1700-000000</li>
+          <li><span>✉️</span> hello@gourmet-haven.com</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Opening Hours</h4>
+        <ul class="f-hours">
+          <li><span>Mon – Thu</span><span>11 AM – 10 PM</span></li>
+          <li><span>Fri – Sat</span><span>11 AM – 11 PM</span></li>
+          <li><span>Sunday</span><span>12 PM – 9 PM</span></li>
+        </ul>
+        <div class="newsletter">
+          <p>Get exclusive offers:</p>
+          <div class="nl-row">
+            <input type="email" placeholder="Your email" id="nlEmail" />
+            <button onclick="subscribeNewsletter()">Go</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <p>&copy; 2025 Gourmet Haven. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="src/main.js"></script>
+</body>
+</html>
